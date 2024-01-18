@@ -131,7 +131,7 @@ const checkIfPhoneNumberExistsInFirebase = async (number) => {
             />
             <div id="recaptcha-container"></div>
           </Form.Group>
-          <div className="relative top-[70px] left-[150px]">
+          <div className="relative top-[70px] left-[120px]">
             <Link to="/">
               <Button  onClick={resetInputData} className='mt-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500
              transition-all duration-300 
