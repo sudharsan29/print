@@ -1,0 +1,30 @@
+div#recaptcha-container {
+    position: absolute;
+    top: 300px;
+    left: 120px;
+}
+
+.PhoneInputCountrySelect {
+    position: absolute;
+    bottom: 80px;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    border: 0;
+    opacity: 0;
+    cursor: pointer;
+    bottom: 60px;
+}
+
+.PhoneInputCountryIconImg {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 100%;  
+}
+
+input.PhoneInputInput {
+    position: relative;
+    top: 15px;
+}

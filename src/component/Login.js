@@ -6,6 +6,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { useUserAuth } from "../context/UserAuthContext";
 import axios from 'axios';
+import './Login.css';
 const PhoneSignUp = () => {
   const [error, setError] = useState("");
   const [number, setNumber] = useState("");
@@ -105,12 +106,20 @@ const checkIfPhoneNumberExistsInFirebase = async (number) => {
       setError(err.message);
     }
   };
+  const resetInputData = () => {
+    setNumber("");
+    setOtp("");
+    setError("");
+    setFlag(false);
+  };
 
   return (
-    <>
+    <div className="relative w-[1535px] h-[700px] bg-blue-200">
       <div className="p-4 box">
-        <h2 className="mb-3">Firebase Phone Auth</h2>
+       
         {error && <Alert variant="danger">{error}</Alert>}
+        <div className="relative left-[490px] top-[200px] w-[600px]">
+        <h2 className="relative mb-3 text-3xl font-bold left-[200px] text-blue-500">LOGIN</h2>
         <Form onSubmit={getOtp} style={{ display: !flag ? "block" : "none" }}>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <PhoneInput
@@ -118,15 +127,20 @@ const checkIfPhoneNumberExistsInFirebase = async (number) => {
               value={number}
               onChange={setNumber}
               placeholder="Enter Phone Number"
+              className="relative w-[400px] left-[30px] top-[70px]"
             />
             <div id="recaptcha-container"></div>
           </Form.Group>
-          <div className="button-right">
+          <div className="relative top-[70px] left-[150px]">
             <Link to="/">
-              <Button variant="secondary">Cancel</Button>
+              <Button  onClick={resetInputData} className='mt-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500
+             transition-all duration-300 
+             user-select-none'>Cancel</Button>
             </Link>
             &nbsp;
-            <Button type="submit" variant="primary">
+            <Button type="submit"className='mt-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500
+             transition-all duration-300 
+             user-select-none'>
               Send Otp
             </Button>
           </div>
@@ -138,20 +152,26 @@ const checkIfPhoneNumberExistsInFirebase = async (number) => {
               type="otp"
               placeholder="Enter OTP"
               onChange={(e) => setOtp(e.target.value)}
+              className="relative w-[400px] left-[30px] top-[30px]"
             />
           </Form.Group>
-          <div className="button-right">
+          <div className="relative top-[10px] left-[130px]">
             <Link to="/">
-              <Button variant="secondary">Cancel</Button>
+              <Button  onClick={resetInputData} className='mt-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500
+             transition-all duration-300 
+             user-select-none'>Cancel</Button>
             </Link>
             &nbsp;
-            <Button type="submit" variant="primary">
+            <Button type="submit"className='mt-5 bg-blue-500 text-white font-bold py-2 px-8 rounded shadow border-2 border-blue-500 hover:bg-transparent hover:text-blue-500
+             transition-all duration-300 
+             user-select-none'>
               Verify
             </Button>
           </div>
         </Form>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 
